@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>metFeet</title>
+</head>
+<body>
+<p>Meters: </p>
+<input type="text" id="input1" oninput="meter()">
+<span id="span1"></span>
+<p>Feet: </p>
+<input type="text" id="input2" oninput="feet()">
+<span id="span2"></span>
+<script>
+    function meter() {
+        a = Number(document.getElementById('input1').value);
+        let met = 3.279*a;
+        document.getElementById('span1').innerHTML= met + ' feet';
+    }
+    function feet() {
+        b = Number(document.getElementById('input2').value);
+        let feet = 0.305*b;
+        document.getElementById('span2').innerHTML= feet + ' met';
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KiemTraSNT</title>
+</head>
+<body>
+<script>
+    function checkPrime(n) {
+
+        if(n<2)
+        {
+            return false;
+        }
+        else
+        {
+            if(n==2)
+            {
+                return true;
+            }
+            else
+            {
+                if (n%2==0)
+                {
+                    return false;
+                }
+                else
+                {
+                    for (let i = 3; i <= Math.sqrt(n); i += 2)
+                    {
+                        if (n % i == 0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+        }
+
+    }
+    function checkNumber() {
+        let a = Number(document.getElementById('input').value);
+        for(let i=0;i<=a;i++)
+        {
+            if(checkPrime(i))
+            {
+                document.getElementById('span').innerHTML += i + ',';
+            }
+        }
+    }
+</script>
+<input type="text" id="input"/><input type="button" value="Check" onclick="checkNumber()">
+<p>Các snt nhỏ hơn 1000: <span id="span"></span> </p>
+</body>
+</html>
