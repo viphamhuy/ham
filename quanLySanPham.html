@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QuanLySanPham</title>
+</head>
+<body>
+    <h4>Thêm sản phẩm</h4>
+    <input type="text" id="text">
+    <input type="button" id="add" value="Add" onclick="add(dsSanPham)">
+
+    <h4>Danh sách sản phẩm : </h4>
+    <input type="button" id="edit" value="Edit" onclick="edit(dsSanPham)">
+    <input type="button" id="delete" value="Delete" onclick="del(dsSanPham)">
+    <p id="dssp"></p>
+<script>
+    let dsSanPham = ['Sony Xperia','Samsung Galaxy','Nokia 6','Xiaomi Redmi Note 4','Apple Iphone 6S','Xiaomi Mi 5S Plus','Apple Iphone 8 Plus','Oppo A71'];
+    function danhSach(dsSanPham) {
+        let list ='';
+        for (let i=0;i<dsSanPham.length;i++)
+        {
+            list += (i+1) + '. ' + dsSanPham[i]  +'<br>';
+        }
+        return list;
+    }
+    document.getElementById('dssp').innerHTML = danhSach(dsSanPham);
+    function add(dsSanPham) {
+        let a = document.getElementById('text').value;
+        dsSanPham.push(a);
+        document.getElementById('dssp').innerHTML = danhSach(dsSanPham);
+    }
+    function edit(dsSanPham) {
+        let vitri = prompt('Nhập vị trí cần sửa: ');
+        let edit = prompt('Nhập tên sản phẩm: ');
+        dsSanPham[vitri-1]=edit;
+        document.getElementById('dssp').innerHTML = danhSach(dsSanPham);
+    }
+    function del(dsSanPham) {
+        let vitri = prompt('Nhập vị trí cần xóa: ');
+        dsSanPham.splice(vitri-1,1);
+        document.getElementById('dssp').innerHTML = danhSach(dsSanPham);
+    }
+
+</script>
+
+
+</body>
+</html>
